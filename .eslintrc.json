@@ -26,8 +26,13 @@
         "@typescript-eslint"
     ],
     "rules": {
+      "no-trailing-spaces": "off",
+      "operator-linebreak": "off",
+      "arrow-parens": "off",
+      "implicit-arrow-linebreak": "off",
+      "arrow-body-style": "off",
       "@typescript-eslint/explicit-module-boundary-types": "off",
-      "prettier/prettier": "error",
+      "prettier/prettier": ["error", { "endOfLine":"auto" }],
       "react/prop-types": "off",
       "react/jsx-props-no-spreading": "off",
       "react/react-in-jsx-scope": "off",
