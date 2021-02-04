@@ -47,6 +47,12 @@ export const Container = styled.div`
     }
   }
 
+  @media (max-width: 1366px) {
+    main {
+      margin-top: 150px;
+    }
+  }
+
   @media (max-width: 800px) {
     max-width: 600px;
     background-position: center;
