@@ -26,6 +26,12 @@
         "@typescript-eslint"
     ],
     "rules": {
+      "consistent-return": "off",
+      "array-callback-return": "off",
+      "jsx-a11y/no-noninteractive-element-interactions": "off",
+      "jsx-a11y/label-has-associated-control": "off",
+      "jsx-a11y/click-events-have-key-events": "off",
+      "object-curly-newline": "off",
       "no-trailing-spaces": "off",
       "operator-linebreak": "off",
       "arrow-parens": "off",
