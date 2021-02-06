@@ -10,12 +10,26 @@ export const Container = styled.div`
   align-items: center;
 
   header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    > h1 {
+      font-size: 48px;
+      font-weight: bold;
+    }
+  }
+
+  section {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    display: flex;
+    flex-direction: column;
 
-    > div {
+    > div:first-child {
       width: 100%;
       max-width: 600px;
       display: flex;
@@ -48,4 +62,5 @@ export const CardsWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 25px;
+  margin-bottom: 40px;
 `;

@@ -15,15 +15,6 @@ export const Container = styled.div`
   cursor: pointer;
   transition: 200ms;
 
-  :hover {
-    transform: scale(1.02);
-  }
-
-  h1 {
-    font-size: 14px;
-    text-align: center;
-  }
-
   > div {
     width: 100%;
     display: flex;
@@ -32,26 +23,8 @@ export const Container = styled.div`
     margin-bottom: 8px;
 
     span {
-      width: auto;
-      height: 23px;
-      border-radius: 4px;
       padding: 0 3px 0 3px;
       margin: 4px;
-      color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 12px;
-      font-weight: 500;
-
-      svg {
-        cursor: pointer;
-      }
     }
-  }
-
-  span {
-    color: #15122b;
-    margin-top: 8px;
   }
 `;

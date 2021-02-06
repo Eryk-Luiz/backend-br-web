@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "next",
-    "build": "next build"
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -14,6 +15,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",
+    "react-infinite-scroll-component": "^6.0.0",
+    "react-loading-skeleton": "^2.1.1",
     "styled-components": "^5.2.1",
     "tinycolor2": "^1.4.2"
   },

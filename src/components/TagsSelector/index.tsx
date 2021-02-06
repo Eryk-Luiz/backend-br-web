@@ -8,7 +8,7 @@ import {
   SelectedTagsItem,
 } from './styles';
 
-interface ILabel {
+export interface ILabel {
   id: number;
   node_id: string;
   url: string;
@@ -30,9 +30,11 @@ const TagsSelector: React.FC<TagsSelectorProps> = ({
   setSelectedTags,
 }) => {
   const [active, setActive] = useState(false);
-  const [topPosition, setTopPosition] = useState(0);
-  const [rightPosition, setRightPosition] = useState(0);
-  const [dropUpWidth, setDropUpWidth] = useState(0);
+  const [selectorOptions, setSelectorOptions] = useState({
+    top: 0,
+    right: 0,
+    width: 0,
+  });
   const [visibleTags, setVisibleTags] = useState<ILabel[]>();
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -43,9 +45,7 @@ const TagsSelector: React.FC<TagsSelectorProps> = ({
     const { right } = current.getBoundingClientRect();
     const { width } = current.getBoundingClientRect();
 
-    setTopPosition(top);
-    setRightPosition(right);
-    setDropUpWidth(width);
+    setSelectorOptions({ top, right, width });
   }, []);
 
   const handleSelectTags = useCallback(
@@ -75,7 +75,10 @@ const TagsSelector: React.FC<TagsSelectorProps> = ({
       }
 
       const filteredLabels = visibleTags.filter(item => {
-        if (item.name.includes(value)) {
+        const upperCaseValue = value.toUpperCase();
+        const upperCaseItem = item.name.toUpperCase();
+
+        if (upperCaseItem.includes(upperCaseValue)) {
           return item;
         }
       });
@@ -111,9 +114,9 @@ const TagsSelector: React.FC<TagsSelectorProps> = ({
         {active && (
           <Drop onClick={() => setActive(false)}>
             <ItemsContainer
-              top={topPosition}
-              right={rightPosition}
-              width={dropUpWidth}
+              top={selectorOptions.top}
+              right={selectorOptions.right}
+              width={selectorOptions.width}
             >
               <ul>
                 {visibleTags.map(label => (
