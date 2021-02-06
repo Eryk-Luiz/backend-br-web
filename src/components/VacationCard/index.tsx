@@ -31,16 +31,17 @@ const VacationCard: React.FC<IVacancies> = ({
       <h1>{title}</h1>
 
       <div>
-        {labels.map(label => (
-          <span
-            style={{
-              backgroundColor: `#${label.color}`,
-              color: `#${resolveColor(label.color)}`,
-            }}
-          >
-            {label.name}
-          </span>
-        ))}
+        {labels &&
+          labels.map(label => (
+            <span
+              style={{
+                backgroundColor: `#${label.color}`,
+                color: `#${resolveColor(label.color)}`,
+              }}
+            >
+              {label.name}
+            </span>
+          ))}
       </div>
 
       <span className="publicationDate">

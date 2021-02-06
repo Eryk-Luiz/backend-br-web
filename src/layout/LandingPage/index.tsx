@@ -7,6 +7,7 @@ import { Container } from './styles';
 
 const LandingPage: React.FC = () => {
   const [vacanciesCount, setVacanciesCount] = useState(0);
+
   const router = useRouter();
 
   useEffect(() => {
@@ -26,7 +27,12 @@ const LandingPage: React.FC = () => {
           <Button variant="primary" onClick={() => router.push('/vagas')}>
             Vagas
           </Button>
-          <Button variant="secondary">
+          <Button
+            variant="secondary"
+            onClick={() =>
+              window.open('https://github.com/Eryk-Luiz/backend-br-web')
+            }
+          >
             <FiGithub size={22} />
             Repositório
           </Button>
