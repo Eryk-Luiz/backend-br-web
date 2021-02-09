@@ -1,21 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { FiGithub } from 'react-icons/fi';
 import { useRouter } from 'next/router';
 import Button from '../../components/Button';
-import api from '../../services/api';
 import { Container } from './styles';
 
-const LandingPage: React.FC = () => {
-  const [vacanciesCount, setVacanciesCount] = useState(0);
+type LandingProps = {
+  open_issues_count: number;
+};
 
+const LandingPage: React.FC<LandingProps> = ({ open_issues_count }) => {
   const router = useRouter();
-
-  useEffect(() => {
-    api
-      .get('/repos/backend-br/vagas')
-      .then(({ data }) => setVacanciesCount(data.open_issues_count));
-  }, []);
-
   return (
     <Container>
       <header>
@@ -39,7 +33,7 @@ const LandingPage: React.FC = () => {
         </div>
 
         <span>Total de vagas:</span>
-        <span className="vacanciesCounter">{vacanciesCount}</span>
+        <span className="vacanciesCounter">{open_issues_count}</span>
       </main>
     </Container>
   );

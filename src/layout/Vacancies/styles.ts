@@ -56,6 +56,11 @@ export const Container = styled.div`
     align-items: center;
     margin-top: 70px;
   }
+
+  img {
+    margin-top: 20px;
+    width: 40%;
+  }
 `;
 
 export const CardsWrapper = styled.div`

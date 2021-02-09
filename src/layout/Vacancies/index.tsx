@@ -96,30 +96,39 @@ const Vacancies: React.FC = () => {
           />
         </div>
       </section>
-      <InfiniteScroll
-        style={{ width: '100%' }}
-        dataLength={vacancies.length}
-        next={fetchMore}
-        hasMore={selectedTags.length === 0 && hasMore}
-        // eslint-disable-next-line prettier/prettier
-        loader={(
-          <CardsWrapper>
-            <SkeletonCards />
-            <SkeletonCards />
-            <SkeletonCards />
-          </CardsWrapper>
+
+      {vacancies.length > 0 ? (
+        <InfiniteScroll
+          style={{ width: '100%' }}
+          dataLength={vacancies.length}
+          next={fetchMore}
+          hasMore={selectedTags.length === 0 && hasMore}
           // eslint-disable-next-line prettier/prettier
+          loader={(
+            <CardsWrapper>
+              <SkeletonCards />
+              <SkeletonCards />
+              <SkeletonCards />
+            </CardsWrapper>
+            // eslint-disable-next-line prettier/prettier
         )}
-      >
-        <main>
-          <CardsWrapper>
-            {vacancies &&
-              vacancies.map(vacancie => (
-                <VacationCard key={vacancie.html_url} {...vacancie} />
-              ))}
-          </CardsWrapper>
-        </main>
-      </InfiniteScroll>
+        >
+          <main>
+            <CardsWrapper>
+              {vacancies &&
+                vacancies.map(vacancie => (
+                  <VacationCard key={vacancie.html_url} {...vacancie} />
+                ))}
+            </CardsWrapper>
+          </main>
+        </InfiniteScroll>
+      ) : (
+        <>
+          <img src="assets/emptyState.svg" alt="Nenhum resultado" />
+
+          <h2>Nenhuma vaga encontrada</h2>
+        </>
+      )}
     </Container>
   );
 };
