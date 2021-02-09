@@ -1,22 +1,25 @@
-import Document, {
-  DocumentContext,
-  Head,
-  Html,
-  Main,
-  NextScript,
-} from 'next/document';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 
-class BackendBrDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx);
+interface IProps {
+  styleTags: () => {};
+}
+class BackendBrDocument extends Document<IProps> {
+  static async getInitialProps({ renderPage }) {
+    const sheet = new ServerStyleSheet();
 
-    return initialProps;
+    const page = renderPage(App => props =>
+      sheet.collectStyles(<App {...props} />),
+    );
+
+    const styleTags = sheet.getStyleElement();
+    return { ...page, styleTags };
   }
 
   render() {
     return (
       <Html>
-        <Head />
+        <Head>{this.props.styleTags}</Head>
         <body>
           <Main />
           <NextScript />
