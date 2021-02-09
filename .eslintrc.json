@@ -26,6 +26,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+      "react/no-danger": "off",
       "react/jsx-curly-newline": "off",
       "function-paren-newline": "off",
       "consistent-return": "off",
