@@ -20,6 +20,7 @@ const Vacancies: React.FC = () => {
   const [pages, setPages] = useState(1);
   const [selectedTags, setSelectedTags] = useState<ILabel[]>([]);
   const [vacancies, setVacancies] = useState<IVacancies[]>([]);
+  const [hasMore, setHasMore] = useState(true);
 
   const handleGetLabels = useCallback(async () => {
     const { data } = await api.get(
@@ -45,6 +46,10 @@ const Vacancies: React.FC = () => {
         pages + 1
       }&labels=${formatLabels(selectedTags)}`,
     );
+
+    if (data.length === 0) {
+      setHasMore(false);
+    }
 
     setVacancies([...vacancies, ...data]);
     setPages(pages + 1);
@@ -95,7 +100,7 @@ const Vacancies: React.FC = () => {
         style={{ width: '100%' }}
         dataLength={vacancies.length}
         next={fetchMore}
-        hasMore
+        hasMore={selectedTags.length === 0 && hasMore}
         // eslint-disable-next-line prettier/prettier
         loader={(
           <CardsWrapper>
