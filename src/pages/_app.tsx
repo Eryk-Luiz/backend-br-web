@@ -22,10 +22,6 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
     );
   }, []);
 
-  useEffect(() => {
-    console.log(blocked);
-  }, [blocked]);
-
   return (
     <>
       <GlobalStyle />
