@@ -12,6 +12,7 @@ declare module 'styled-components' {
       input: string;
       card: string;
       small: string;
+      effect: string;
     };
   }
 }

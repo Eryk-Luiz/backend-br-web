@@ -10,6 +10,7 @@ export const light =
       input: '#0E79B2',
       card: '#FBFEF9',
       small: '#aaa',
+      effect: '#ddd'
     }
 };
 
@@ -25,5 +26,6 @@ export const dark =
       input: '#536271',
       card: '#1c2120',
       small: '#464a49',
+      effect: '#cecece'
     },
   };

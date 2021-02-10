@@ -6,12 +6,12 @@ import api from '../services/api';
 import GlobalStyle from '../styles/globalStyle';
 import { ThemeProvider } from 'styled-components';
 import Header from '../components/Header';
-import { light as LightTheme, dark as DarkTheme } from "../styles/themes/GregDuSoli";
 import useStickyState from '../hooks/useStickyState';
+import { light as LightTheme, dark as DarkTheme } from "../styles/themes/GregDuSoli";
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const googleId = process.env.gcloud_id;
-  const [theme, setTheme] = useStickyState('theme', LightTheme);
+  const [theme, setTheme] = useStickyState('theme', DarkTheme);
   const [blocked, setBlocked] = useState({
     blocked: false,
     remaining: 0,
@@ -23,7 +23,8 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 
     api.get('/rate_limit').then(({ data: { rate } }) =>
       setBlocked({
-        blocked: rate.remaining === 0,
+        // blocked: rate.remaining === 0,
+        blocked: true,
         remaining: rate.limit,
         reset: rate.reset,
       }),

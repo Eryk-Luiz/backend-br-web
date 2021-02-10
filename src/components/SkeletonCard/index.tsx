@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { Container } from './styles';
+import { ThemeContext } from 'styled-components';
 
 const SkeletonCards: React.FC = () => {
+  const theme = useContext(ThemeContext);
+
   return (
-    <SkeletonTheme color="#d3d3d3" highlightColor="#b1b1b1">
+    <SkeletonTheme color={theme.colors.small} highlightColor={theme.colors.effect}>
       <Container>
         <h3>
           <Skeleton width="100%" />
