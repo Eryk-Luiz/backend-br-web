@@ -33,5 +33,11 @@ export const Container = styled.div`
       font-size: 18px;
       font-weight: normal;
     }
+
+    @media (max-width: 425px) {
+      h1 {
+        font-size: 24px;
+      }
+    }
   }
 `;

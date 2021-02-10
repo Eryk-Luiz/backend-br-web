@@ -10,8 +10,12 @@ const BlockedPage: React.FC = () => {
         <img src="assets/blocked.svg" alt="" />
         <h1>Limite de requisições excedidas</h1>
 
-        <Button variant="primary" onClick={() => window.open('https://github.com/backend-br/vagas/')}>
-          <FiGithub /> Repositório oficial
+        <Button
+          variant="primary"
+          onClick={() => window.open('https://github.com/backend-br/vagas/')}
+        >
+          <FiGithub />
+          Repositório oficial
         </Button>
       </div>
     </Container>

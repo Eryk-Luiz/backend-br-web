@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  /* width: 340px; */
+  width: 340px;
   height: auto;
   border-top: 16px solid ${props => props.theme.colors.secondary};
   border-radius: 8px;
@@ -56,5 +56,9 @@ export const Container = styled.div`
     margin-top: 8px;
     font-weight: normal;
     font-size: 0.8em;
+  }
+
+  @media (max-width: 750px) {
+    width: 100%;
   }
 `;

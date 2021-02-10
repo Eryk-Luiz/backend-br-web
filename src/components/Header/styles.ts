@@ -21,16 +21,19 @@ export const Container = styled.div`
     font-size: 1.8em;
     font-weight: bold;
 
-    * {
-      margin-right: 4px;
-    }
-
     a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-decoration: none;
       color: ${props => props.theme.colors.primary};
 
       &:hover {
         color: ${props => props.theme.colors.secondary};
+      }
+
+      svg {
+        margin-right: 4px;
       }
     }
   }
@@ -46,6 +49,16 @@ export const Container = styled.div`
     &:hover {
       color: ${props => props.theme.colors.secondary};
     }
+  }
+
+  @media (max-width: 375px) {
+    .contentLeft {
+      font-size: 1.2em;
+    }
+  }
+
+  @media (max-width: 320px) {
+    padding: 0 15px;
   }
 `;
 

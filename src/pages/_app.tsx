@@ -1,13 +1,16 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
+import { ThemeProvider } from 'styled-components';
 import BlockedPage from '../layout/BlockedPage';
 import api from '../services/api';
 import GlobalStyle from '../styles/globalStyle';
-import { ThemeProvider } from 'styled-components';
 import Header from '../components/Header';
 import useStickyState from '../hooks/useStickyState';
-import { light as LightTheme, dark as DarkTheme } from "../styles/themes/GregDuSoli";
+import {
+  light as LightTheme,
+  dark as DarkTheme,
+} from '../styles/themes/GregDuSoli';
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const googleId = process.env.gcloud_id;
@@ -23,14 +26,13 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 
     api.get('/rate_limit').then(({ data: { rate } }) =>
       setBlocked({
-        blocked: rate.remaining === 0,
+        // blocked: rate.remaining === 0,
+        blocked: true,
         remaining: rate.limit,
         reset: rate.reset,
       }),
     );
   }, []);
-
-
   const toggleTheme = () => {
     setTheme(theme.name === 'light' ? DarkTheme : LightTheme);
   };

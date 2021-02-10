@@ -38,70 +38,15 @@ export const Container = styled.div`
     justify-content: space-around;
   }
 
-  /* @media (max-width: 1366px) {
-    main {
-      margin-top: 150px;
-    }
-  }
-
-  @media (max-width: 800px) {
-    max-width: 600px;
-    background-position: center;
-    background-size: 300px;
-
-    header {
-      max-width: 100%;
-    }
-
-    main {
-      align-items: center;
-      justify-content: center;
-
-      div {
-        align-items: center;
-        justify-content: center;
-      }
-
-      span {
-        margin-top: 20px;
-      }
-    }
-  }
-
-  @media (max-width: 500px) {
-    max-width: 300px;
-    background-position: center 60%;
+  @media (max-width: 1024px) {
     align-items: center;
-    justify-content: center;
     text-align: center;
-    margin-top: 0;
-    margin-bottom: 20px;
-
-    h1 {
-      margin: 20px;
-      font-size: 38px;
-    }
-
-    header {
-      max-width: 100%;
-    }
+    background-size: 300px;
+    background-position: center 280px;
+    margin-top: 0px;
 
     main {
-      align-items: center;
-      justify-content: center;
-
-      button {
-        width: 130px;
-      }
-
-      div {
-        align-items: center;
-        justify-content: center;
-      }
-
-      span {
-        margin-top: 20px;
-      }
+      margin-top: 200px;
     }
-  } */
+  }
 `;

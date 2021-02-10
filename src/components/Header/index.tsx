@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { FiSun, FiMoon, FiGithub } from 'react-icons/fi';
 import { AiOutlineCloudServer } from 'react-icons/ai';
 import { ThemeContext } from 'styled-components';
@@ -15,7 +15,7 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
     <Container>
       <div className="contentLeft">
         <a href="/">
-          <AiOutlineCloudServer size={34} />
+          <AiOutlineCloudServer size={33} />
           Backend Brasil
         </a>
       </div>

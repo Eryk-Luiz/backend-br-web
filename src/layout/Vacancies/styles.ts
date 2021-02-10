@@ -40,6 +40,11 @@ export const Container = styled.div`
         }
       }
     }
+
+    @media (max-width: 750px) {
+      padding: 30px;
+      box-sizing: border-box;
+    }
   }
 
   main {
@@ -47,8 +52,10 @@ export const Container = styled.div`
     flex: 1;
     display: flex;
     justify-content: center;
+    margin-top: 30px;
     align-items: center;
-    margin-top: 70px;
+    box-sizing: border-box;
+    padding: 30px;
   }
 `;
 
@@ -57,4 +64,12 @@ export const CardsWrapper = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 25px;
   margin-bottom: 40px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 750px) {
+    grid-template-columns: 1fr;
+  }
 `;
