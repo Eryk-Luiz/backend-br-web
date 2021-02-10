@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-wrap-multilines */
 import React, { useCallback, useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import SkeletonCards from '../../components/SkeletonCard';
@@ -83,7 +84,7 @@ const Vacancies: React.FC = () => {
         style={{ width: '100%' }}
         dataLength={vacancies.length}
         next={fetchMore}
-        hasMore
+        hasMore={hasMore && TagsSelector.length === 0}
         loader={
           <CardsWrapper>
             <SkeletonCards />
