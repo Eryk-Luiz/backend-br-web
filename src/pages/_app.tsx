@@ -26,8 +26,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 
     api.get('/rate_limit').then(({ data: { rate } }) =>
       setBlocked({
-        // blocked: rate.remaining === 0,
-        blocked: true,
+        blocked: rate.remaining === 0,
         remaining: rate.limit,
         reset: rate.reset,
       }),
@@ -66,8 +65,18 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
             }}
           />
         </Head>
-        <Header toggleTheme={toggleTheme} />
-        {blocked.blocked ? <BlockedPage /> : <Component {...pageProps} />}
+
+        {blocked.blocked ? (
+          <>
+            <Header toggleTheme={toggleTheme} />
+            <BlockedPage />
+          </>
+        ) : (
+          <>
+            <Header toggleTheme={toggleTheme} />
+            <Component {...pageProps} />
+          </>
+        )}
       </ThemeProvider>
     </>
   );
