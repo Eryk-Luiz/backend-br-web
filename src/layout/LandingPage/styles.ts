@@ -23,31 +23,22 @@ export const Container = styled.div`
     h1 {
       font-size: 48px;
       font-weight: bold;
+      color: ${props => props.theme.colors.action};
+    }
+
+    h2 {
+      color: ${props => props.theme.colors.paragraph};
     }
   }
 
   main {
-    margin-top: 250px;
+    margin: 50px 0px;
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
-
-    div {
-      flex: 1;
-      display: flex;
-    }
-
-    span {
-      display: inline-block;
-    }
-
-    .vacanciesCounter {
-      color: #6c63ff;
-      margin-left: 5px;
-    }
+    justify-content: space-around;
   }
 
-  @media (max-width: 1366px) {
+  /* @media (max-width: 1366px) {
     main {
       margin-top: 150px;
     }
@@ -112,5 +103,5 @@ export const Container = styled.div`
         margin-top: 20px;
       }
     }
-  }
+  } */
 `;

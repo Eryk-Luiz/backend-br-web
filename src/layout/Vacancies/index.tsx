@@ -1,7 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { FiGithub } from 'react-icons/fi';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import Button from '../../components/Button';
 import SkeletonCards from '../../components/SkeletonCard';
 import TagsSelector, { ILabel } from '../../components/TagsSelector';
 import VacationCard from '../../components/VacationCard';
@@ -71,24 +69,8 @@ const Vacancies: React.FC = () => {
 
   return (
     <Container>
-      <header>
-        <h1>Backend Brasil</h1>
-        <h2>Agregador de vagas para desenvolvedores backend</h2>
-
-        <Button
-          variant="secondary"
-          onClick={() =>
-            window.open('https://github.com/Eryk-Luiz/backend-br-web')
-          }
-        >
-          <FiGithub size={22} />
-          Repositório
-        </Button>
-      </header>
-
       <section>
         <div>
-          <label>Buscar por tags</label>
           <TagsSelector
             selectedTags={selectedTags}
             setSelectedTags={value => setSelectedTags(value)}
@@ -97,38 +79,28 @@ const Vacancies: React.FC = () => {
         </div>
       </section>
 
-      {vacancies.length > 0 ? (
-        <InfiniteScroll
-          style={{ width: '100%' }}
-          dataLength={vacancies.length}
-          next={fetchMore}
-          hasMore={selectedTags.length === 0 && hasMore}
-          // eslint-disable-next-line prettier/prettier
-          loader={(
-            <CardsWrapper>
-              <SkeletonCards />
-              <SkeletonCards />
-              <SkeletonCards />
-            </CardsWrapper>
-            // eslint-disable-next-line prettier/prettier
-        )}
-        >
-          <main>
-            <CardsWrapper>
-              {vacancies &&
-                vacancies.map(vacancie => (
-                  <VacationCard key={vacancie.html_url} {...vacancie} />
-                ))}
-            </CardsWrapper>
-          </main>
-        </InfiniteScroll>
-      ) : (
-        <>
-          <img src="assets/emptyState.svg" alt="Nenhum resultado" />
-
-          <h2>Nenhuma vaga encontrada</h2>
-        </>
-      )}
+      <InfiniteScroll
+        style={{ width: '100%' }}
+        dataLength={vacancies.length}
+        next={fetchMore}
+        hasMore
+        loader={
+          <CardsWrapper>
+            <SkeletonCards />
+            <SkeletonCards />
+            <SkeletonCards />
+          </CardsWrapper>
+        }
+      >
+        <main>
+          <CardsWrapper>
+            {vacancies &&
+              vacancies.map(vacancie => (
+                <VacationCard key={vacancie.html_url} {...vacancie} />
+              ))}
+          </CardsWrapper>
+        </main>
+      </InfiniteScroll>
     </Container>
   );
 };

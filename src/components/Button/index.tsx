@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes } from 'react';
 import { CustomButton } from './styles';
 
 interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant: 'primary' | 'secondary';
+  variant: 'primary' | 'secondary' | 'header';
 }
 
 const Button: React.FC<IButton> = ({

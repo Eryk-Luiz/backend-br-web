@@ -9,15 +9,21 @@ interface IitemsProps {
 interface ISelectedTagsItem {
   defaultColor: string;
 }
+
 export const Container = styled.div`
   width: 100%;
-  background-color: #fff;
   width: 100%;
   max-width: 600px;
-  height: 30px;
+  height: 40px;
   border-radius: 8px;
   outline: none;
   border: 0;
+
+  input[type='text'] {
+    background-color: ${props => props.theme.colors.card};
+    color: ${props => props.theme.colors.paragraph};
+    padding-left: 8px;
+  }
 `;
 
 export const Drop = styled.div`
@@ -30,15 +36,15 @@ export const Drop = styled.div`
 
 export const ItemsContainer = styled.div<IitemsProps>`
   position: absolute;
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.card};
   top: ${props => `${props.top + 40}px`};
-  right: ${props => `${props.right - props.width - 5}px`};
+  right: ${props => `${props.right - props.width - 16}px`};
   width: ${props => `${props.width}px`};
   height: auto;
   max-height: 300px;
   overflow-y: scroll;
   border-radius: 8px;
-  border: 2px solid #000;
+  border: 2px solid ${props => props.theme.colors.input};
 
   ul {
     margin: 0;
@@ -49,15 +55,15 @@ export const ItemsContainer = styled.div<IitemsProps>`
     li {
       list-style: none;
       width: 100%;
-      color: #000;
+      color: ${props => props.theme.colors.paragraph};
       box-sizing: border-box;
       padding: 8px;
       cursor: pointer;
-      border-bottom: 1px solid #cecece;
+      border-bottom: 1px solid ${props => props.theme.colors.small};
       transition: 200ms;
 
       &:hover {
-        background-color: #f1f1f1;
+        background-color: ${props => props.theme.colors.background};
       }
     }
   }
@@ -70,7 +76,6 @@ export const SelectedTagsContainer = styled.div`
   min-height: 50px;
   border-radius: 8px;
   margin-top: 20px;
-
   display: flex;
   flex-wrap: wrap;
 `;
@@ -81,7 +86,7 @@ export const SelectedTagsItem = styled.span<ISelectedTagsItem>`
   border-radius: 4px;
   padding: 6px;
   margin: 4px;
-  color: #000;
+  color: ${props => props.theme.colors.paragraph};
   background-color: ${props => `#${props.defaultColor}`};
   display: flex;
   justify-content: center;
