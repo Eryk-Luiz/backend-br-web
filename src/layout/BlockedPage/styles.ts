@@ -8,7 +8,11 @@ export const Container = styled.div`
   align-items: center;
 
   img {
-    width: 80%;
+    width: 50%;
+  }
+
+  svg {
+    margin-right: 5px;
   }
 
   > div {
@@ -17,10 +21,12 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
+    color: ${props => props.theme.colors.paragraph};
 
     h1 {
       font-size: 28px;
       font-weight: bold;
+      margin: 50px 0px;
     }
 
     h2 {

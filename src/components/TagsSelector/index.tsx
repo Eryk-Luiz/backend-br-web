@@ -109,6 +109,7 @@ const TagsSelector: React.FC<TagsSelectorProps> = ({
           onChange={({ target }) => filterLabels(target.value)}
           onFocus={() => setActive(true)}
           ref={inputRef}
+          placeholder={"Buscar por tags"}
         />
 
         {active && (

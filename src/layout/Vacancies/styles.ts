@@ -9,18 +9,6 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 
-  header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    > h1 {
-      font-size: 48px;
-      font-weight: bold;
-    }
-  }
-
   section {
     width: 100%;
     display: flex;
@@ -40,10 +28,16 @@ export const Container = styled.div`
       input {
         width: 100%;
         max-width: 600px;
-        height: 30px;
+        height: 40px;
         border-radius: 8px;
         outline: none;
         border: 0;
+        font-size: 1.2em;
+        border: 2px solid ${props => props.theme.colors.action};
+
+        &:focus {
+          border: 2px solid ${props => props.theme.colors.secondary};
+        }
       }
     }
   }
@@ -55,11 +49,6 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 70px;
-  }
-
-  img {
-    margin-top: 20px;
-    width: 40%;
   }
 `;
 

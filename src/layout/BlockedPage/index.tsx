@@ -9,13 +9,9 @@ const BlockedPage: React.FC = () => {
       <div>
         <img src="assets/blocked.svg" alt="" />
         <h1>Limite de requisições excedidas</h1>
-        <h2>
-          Você pode procurar as vagas diretamente do repositório enquanto isso!
-        </h2>
 
-        <Button variant="secondary">
-          <FiGithub size={18} />
-          Repositório
+        <Button variant="primary" onClick={() => window.open('https://github.com/backend-br/vagas/')}>
+          <FiGithub /> Repositório oficial
         </Button>
       </div>
     </Container>
