@@ -84,7 +84,7 @@ const Vacancies: React.FC = () => {
         style={{ width: '100%' }}
         dataLength={vacancies.length}
         next={fetchMore}
-        hasMore={hasMore && TagsSelector.length === 0}
+        hasMore={hasMore && selectedTags.length === 0}
         loader={
           <CardsWrapper>
             <SkeletonCards />
