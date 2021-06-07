@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-wrap-multilines */
 import React, { useCallback, useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import AutoScrollButton from '../../components/AutoScrollButton';
 import SkeletonCards from '../../components/SkeletonCard';
 import TagsSelector, { ILabel } from '../../components/TagsSelector';
 import VacationCard from '../../components/VacationCard';
@@ -69,40 +70,44 @@ const Vacancies: React.FC = () => {
   }, [handleGetLabels]);
 
   return (
-    <Container>
-      <section>
-        <div>
-          <TagsSelector
-            selectedTags={selectedTags}
-            setSelectedTags={value => setSelectedTags(value)}
-            labels={labels}
-          />
-        </div>
-      </section>
+    <>
+      <Container>
+        <section>
+          <div>
+            <TagsSelector
+              selectedTags={selectedTags}
+              setSelectedTags={value => setSelectedTags(value)}
+              labels={labels}
+            />
+          </div>
+        </section>
 
-      <InfiniteScroll
-        style={{ width: '100%' }}
-        dataLength={vacancies.length}
-        next={fetchMore}
-        hasMore={hasMore && selectedTags.length === 0}
-        loader={
-          <CardsWrapper>
-            <SkeletonCards />
-            <SkeletonCards />
-            <SkeletonCards />
-          </CardsWrapper>
-        }
-      >
-        <main>
-          <CardsWrapper>
-            {vacancies &&
-              vacancies.map(vacancie => (
-                <VacationCard key={vacancie.html_url} {...vacancie} />
-              ))}
-          </CardsWrapper>
-        </main>
-      </InfiniteScroll>
-    </Container>
+        <InfiniteScroll
+          style={{ width: '100%' }}
+          dataLength={vacancies.length}
+          next={fetchMore}
+          hasMore={hasMore && selectedTags.length === 0}
+          loader={
+            <CardsWrapper>
+              <SkeletonCards />
+              <SkeletonCards />
+              <SkeletonCards />
+            </CardsWrapper>
+          }
+        >
+          <main>
+            <CardsWrapper>
+              {vacancies &&
+                vacancies.map(vacancie => (
+                  <VacationCard key={vacancie.html_url} {...vacancie} />
+                ))}
+            </CardsWrapper>
+          </main>
+        </InfiniteScroll>
+      </Container>
+
+      <AutoScrollButton />
+    </>
   );
 };
 
