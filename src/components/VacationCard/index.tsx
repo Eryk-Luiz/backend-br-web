@@ -34,6 +34,7 @@ const VacationCard: React.FC<IVacancies> = ({
         {labels &&
           labels.map(label => (
             <span
+              key={label.id}
               style={{
                 backgroundColor: `#${label.color}`,
                 color: `#${resolveColor(label.color)}`,

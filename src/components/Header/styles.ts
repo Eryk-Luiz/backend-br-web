@@ -5,6 +5,7 @@ export const Container = styled.div`
   top: 0;
   right: 0;
   left: 0;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,12 +14,12 @@ export const Container = styled.div`
   color: ${props => props.theme.colors.primary};
   padding: 0 30px;
 
-  [class^='icon'] {
+  > svg {
     position: relative;
     cursor: pointer;
   }
 
-  .contentLeft {
+  > div:first-child {
     width: auto;
     justify-content: center;
     align-items: center;
@@ -42,11 +43,7 @@ export const Container = styled.div`
     }
   }
 
-  .contentRight {
-    text-align: right;
-  }
-
-  .icon {
+  svg {
     margin-right: 20px;
     cursor: pointer;
 
@@ -56,7 +53,7 @@ export const Container = styled.div`
   }
 
   @media (max-width: 375px) {
-    .contentLeft {
+    div:first-child {
       font-size: 1.2em;
     }
   }
@@ -65,5 +62,3 @@ export const Container = styled.div`
     padding: 0 15px;
   }
 `;
-
-export default Container;

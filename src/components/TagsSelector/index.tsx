@@ -109,7 +109,7 @@ const TagsSelector: React.FC<TagsSelectorProps> = ({
           onChange={({ target }) => filterLabels(target.value)}
           onFocus={() => setActive(true)}
           ref={inputRef}
-          placeholder={"Buscar por tags"}
+          placeholder="Buscar por tags"
         />
 
         {active && (
@@ -122,6 +122,7 @@ const TagsSelector: React.FC<TagsSelectorProps> = ({
               <ul>
                 {visibleTags.map(label => (
                   <li
+                    key={label.id}
                     onClick={() => {
                       setActive(false);
                       handleSelectTags(label);
